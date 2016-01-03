@@ -1,11 +1,12 @@
 ---
 layout: post
-title:  "AngularJS Filters"
+title:  "AngularJS Built-in Filters"
 date:   2016-01-01 14:09:16 -0500
 categories: blog development
 image: /assets/example.png
 tworicks: /assets/tworicks.png
 currency: /assets/currency.png
+twofilters: /assets/twofilters.png
 ---
 Angular is a front-end framework that has a lot of built-in functionality available to you so you don't have to re-invent the wheel and can keep pushing forward. This tutorial will demonstrate the power Angular provides for two-way data binding using built-in filters. I made some starter code for this tutorial so we can jump right into using filters after we add a search input. The data is hard coded instead of linking to a JSON file only for ease of use and it is Rick and Morty themed because I am currently obsessed with this show. Ready? Let's get started.
 
@@ -59,13 +60,11 @@ Next, we will give our controller a filter called 'filter' that selects a subset
 <li class="character cf" ng-repeat="item in characters | filter: search">
 {% endhighlight %}
 
-After you save and refresh your brower, type in the search bar and you will see the content dynamically display based on what you typed into the input. For example, if we type 'rick' we will get 'Rick Sanchez' and 'Tiny Rick'.
+After you save and refresh your browser, type in the search bar and you will see the content dynamically display based on what you typed into the input. For example, if we type 'rick' we will get 'Rick Sanchez' and 'Tiny Rick'.
 
 <img src="{{ page.tworicks }}" />
 
-This is TWO-WAY BINDING. This is COOL, or as Rick would say "WUBBA LUBBA DUB DUB". This is the power that Angular provides us without us writing much at all.
-
-You can also apply filters to the variables being passed into the view. The basic syntax works like this:
+This is TWO-WAY BINDING. This is COOL, or as Rick would say "WUBBA LUBBA DUB DUB". This is the power that Angular provides us without us writing much at all. You can also apply filters to the variables being passed into the view. The basic syntax works like this:
 
 {% highlight html %}
 {{"{{ expression | filter " }}}}
@@ -74,12 +73,12 @@ You can also apply filters to the variables being passed into the view. The basi
 For a real world example, we'll use the 'currency' filter which formats a number as a currency. You can selectively choose or even make a custom currency, otherwise it will use the default symbol for the current local location. Let's update the characters 'Net Worth' to show USD. The filter currency, along with some other filters, allow arguments. By default for me it would print out in USD anyway but you could change this to any currency or even 'pizza' if you wanted to. I also set the 'fractionSize' which is the second argument, to have no decimal places which will also subsequently round the number.
 
 {% highlight html %}
-<h4>Net Worth: {{"{{ item.netWorth | currency : "USD$" : 0 " }}}}
+<h4>Net Worth: {{"{{ item.netWorth | currency : '$' : 0 " }}}}
 {% endhighlight %}
 
  <img src="{{ page.currency }}" />
 
- You can also chain filters together by adding another pipe and a filter. To see a list of built-in filter options, checkout the [Angular documentation.](https://docs.angularjs.org/api/ng/filter)
+ Now we can chain filters together by adding another pipe and a filter. To see a list of built-in filter options, checkout the [Angular documentation.](https://docs.angularjs.org/api/ng/filter)
 
 {% highlight html %}
 {{"{{ expression | filter | filter2 | filter3 | etc..." }}}}
@@ -90,3 +89,7 @@ Let's go ahead and chain the limitTo and orderBy filter to our controller output
 {% highlight html %}
 <li class="character cf" ng-repeat="item in characters | filter: search | limitTo: 4 | orderBy:'name' ">
 {% endhighlight %}
+
+<img src="{{ page.twofilters }}" />
+
+We covered a lot of really useful things here. We learned to bind data in the view using ng-model, how to implement an Angular built-in filter, filters and their arguments, and chaining filters together. Don't forget to check the documentation for filters we didn't use like 'date' and 'json'. There is another way to use filters by placing them in a javascript file, however, what we did here is considered to be best practice. I will save placing filters in a script file for building custom filters in a future post. Thanks for joining me, I hope you find this useful. Feedback is highly welcome!
