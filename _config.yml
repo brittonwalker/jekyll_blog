@@ -1,0 +1,21 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: They See Me Codin'
+email: bwalker1801@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Hi, my name is Britton Walker and I am a developer/designer. I am about to complete General Assembly's Web Development Immersive course, an intense technical bootcamp where I've learned the foundations of web development and full stack web applications. This is where I will document things I find useful (and hopefully you do too). If you have any questions, please shoot me an email or send me a tweet.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: britbeard
+github_username:  brittonwalker
+
+# Build settings
+markdown: kramdown
+
+include: ['_pages']
